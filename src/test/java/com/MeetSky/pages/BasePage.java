@@ -16,10 +16,9 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//ul[@id='appmenu']")
+    @FindBy(xpath = "//ul[@id='appmenu']//li")
     public List<WebElement> allModules;
 
-    /*
     @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Dashboard']")
     public WebElement dashboardModule;
 
@@ -47,12 +46,11 @@ public abstract class BasePage {
     @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Notes']")
     public WebElement notesModule;
 
-    @FindBy(xpath = "//div[@aria-label='Deck']")
+    @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Deck']")
     public WebElement deckModule;
 
-    @FindBy(xpath = "//div[@aria-label='Tasks']")
+    @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Tasks']")
     public WebElement tasksModule;
-     */
 
     @FindBy(xpath = "//a[@aria-label='Search']")
     public WebElement search;
@@ -95,6 +93,7 @@ public abstract class BasePage {
      * If the provided moduleName doesn't exist gives NoSuchElementException.
      */
     public void moduleSelection(String moduleName){
+        BrowserUtils.waitForVisibilityOf(allModules);
         moduleName = moduleName.substring(0,1).toUpperCase() + moduleName.substring(1).toLowerCase();
         WebElement moduleToClick = Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//a[@aria-label='"+"moduleName"+"']"));
         moduleToClick.click();
