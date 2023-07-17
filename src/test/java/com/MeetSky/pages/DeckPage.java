@@ -29,4 +29,12 @@ public class DeckPage {
     @FindBy(xpath = "//ul[@class='app-navigation-entry__children']//span[@title]")
     public List<WebElement> boards;
 
+    @FindBy(xpath = "//button[@icon='icon-add']")
+    public WebElement addListBtn;
+
+    @FindBy(xpath = "//div[@id='stack-add']//input[@placeholder='List name']")
+    public WebElement listNameInput;
+
+    @FindBy(xpath = "//div[@id='stack-add']//input[@type='submit']")
+    public WebElement listAddArrow;
 }

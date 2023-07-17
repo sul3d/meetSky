@@ -13,3 +13,9 @@ Feature: Users should be able to manage their work
       And user clicks on Add board
       And user types a board name "School"
       Then user's newly created board "School" is displayed under All boards
+
+    Scenario: Verify user can create a new list of card/task under any board
+      Given user selects a board
+      And user clicks on Add list button
+      And user types a list name and clicks on arrow
+      Then user should be able to see the created list
