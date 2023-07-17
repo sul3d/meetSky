@@ -69,6 +69,14 @@ public class BrowserUtils {
         wait.until(ExpectedConditions.invisibilityOf(target));
     }
 
+    public static void waitForVisibilityOf(List<WebElement> target){
+        //Create the object of 'WebDriverWait' class, and set up the constructor args
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        //use the 'wait' object with the proper syntax to create explicit wait conditions.
+        wait.until(ExpectedConditions.visibilityOfAllElements(target));
+    }
+
     /*
     This method accepts String title,
     and waits for that Title to contain given String value.
