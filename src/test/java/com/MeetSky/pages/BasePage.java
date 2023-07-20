@@ -64,8 +64,8 @@ public abstract class BasePage {
     @FindBy(css = "#settings")
     public WebElement profileSettings;
 
-    @FindBy(xpath = "//a[@class='user-status-menu-item__header']//div//div")
-    public WebElement profileName;
+    @FindBy(xpath = "//div[@class='user-status-menu-item__header-content-displayname']")
+    public WebElement fullName;
 
     @FindBy(xpath = "//a[@class='user-status-menu-item__header']")
     public WebElement viewProfileLink;
