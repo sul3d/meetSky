@@ -131,7 +131,9 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
     //3 Test
     @And("User clicks on imagine icon New contact profile picture")
     public void userClicksOnImagineIconNewContactProfilePicture() {
+        BrowserUtils.sleep(2);
         contactsPage.pictureProfileButton.click();
+
     }
 
 
@@ -150,11 +152,14 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
 
     @Then("User clicks choose button")
     public void userClicksChooseButton() {
-        BrowserUtils.sleep(2);
+
         contactsPage.chooseButton.click();
+        BrowserUtils.sleep(2);
+
 
         contactsPage.icon3Dot.click();
         contactsPage.deleteButton.click();
+
 
     }
 
@@ -162,6 +167,8 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
 //4
     @And("User clicks 3dots button in New contact")
     public void userClicksDotsButtonInNewContact() {
+
+        BrowserUtils.sleep(2);
         contactsPage.icon3Dot.click();
     }
 
@@ -170,6 +177,7 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
     @Then("User clicks Delete option")
     public void userClicksDeleteOption() {
 
+        BrowserUtils.sleep(2);
         contactsPage.deleteButton.click();
     }
 
