@@ -5,11 +5,11 @@ Feature: Contacts Module Functionality
 	Background: User is already in the log in page
 		Given the user logged in as "<userType>"
 		Given the user logged in with username as "User1" and password as "Userpass123"
+		Given User is on MeetSky home page
 
 
 	@B29G21-177
 	Scenario: User can create a new contact
-		Given User is on MeetSky home page
 		When User clicks Contacts Module on Dashboard
 		And User clicks New contact button
 		And User write name on Company field of New contact
@@ -19,7 +19,6 @@ Feature: Contacts Module Functionality
 
 	@B29G21-180
 	Scenario: User can see all the contacts as a list inside the middle column and total number of the contacts near the “All Contacts” tab
-		Given User is on MeetSky home page
 		When User clicks Contacts Module on Dashboard
 		And User clicks New contact button
 		And User write name on Company field of New contact
@@ -31,7 +30,6 @@ Feature: Contacts Module Functionality
 
 	@B29G21-182
 	Scenario: User can change the profile picture of any contact with a previously uploaded picture by using “Choose from files” option
-		Given User is on MeetSky home page
 		When User clicks Contacts Module on Dashboard
 		And User clicks New contact button
 		And User write name on Company field of New contact
@@ -39,11 +37,12 @@ Feature: Contacts Module Functionality
 		And User clicks on imagine icon New contact profile picture
 		And User clicks Choose from files option
 		And User clicks 435.jpg picture
+		Then User clicks choose button
+
 
 
 	@B29G21-183
 	Scenario: User can delete any selected contact
-		Given User is on MeetSky home page
 		When User clicks Contacts Module on Dashboard
 		And User clicks New contact button
 		And User write name on Company field of New contact

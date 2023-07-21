@@ -38,8 +38,6 @@ public abstract class BasePage {
     @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Mail']")
     public WebElement mailModule;
 
-    @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Contacts']")
-    public WebElement contactsModule;
 
     @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Calender']")
     public WebElement calenderModule;
@@ -53,6 +51,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@aria-label='Tasks']")
     public WebElement tasksModule;
      */
+
+    @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Contacts']")
+    public WebElement contactsModule;
 
     @FindBy(xpath = "//a[@aria-label='Search']")
     public WebElement search;

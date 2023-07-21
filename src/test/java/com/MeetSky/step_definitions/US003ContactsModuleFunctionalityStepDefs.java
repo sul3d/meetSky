@@ -8,8 +8,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
@@ -18,12 +21,12 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
 
     @Given("User is on MeetSky home page")
     public void user_is_on_meet_sky_home_page() {
-
     }
+
+
     @When("User clicks Contacts Module on Dashboard")
     public void user_clicks_contacts_module_on_dashboard() {
         BrowserUtils.sleep(2);
-
         contactsModule.click();
     }
 
@@ -38,9 +41,7 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
     @When("User write name on Company field of New contact")
     public void user_write_name_on_company_field_of_new_contact() {
 
-
         BrowserUtils.sleep(2);
-
         contactsPage.companyName.sendKeys("Jack");
     }
 
@@ -55,14 +56,13 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
     @Then("User should be see New contact in the All Contacts List")
     public void user_should_be_see_new_contact_in_the_all_contacts_list() {
 
-
         String expectedResult = "New contact";
         String actualResult = contactsPage.name1NewContact.getText();
-
         System.out.println("contactsPage.newContact.getText() = " + contactsPage.name1NewContact.getText());
-
         Assert.assertTrue(actualResult.contains(expectedResult));
 
+        contactsPage.icon3Dot.click();
+        contactsPage.deleteButton.click();
 
     }
 
@@ -79,49 +79,105 @@ public class US003ContactsModuleFunctionalityStepDefs extends BasePage {
     public void userShouldBeAbleToSeeTheTotalNumberOfTheList() {
 
 
-    }
+        /*System.out.print("contactsPage.notGroupedIcon.getText() = " + contactsPage.notGroupedIcon.getText());
 
-    @Then("User should be able to see whole list on All contacts")
-    public void userShouldBeAbleToSeeWholeListOnAllContacts(List<WebElement> contacts, String cont ) {
+        String expectedResult = "1";
+        String actualResult = contactsPage.notGroupedIcon.getText();
 
-
-        /*
-        contactsPage.groupContact.isDisplayed();
-
-        String expectedResult = "Jack";
-        String actualResult = contactsPage.groupContact.getText();
-
-        Assert.assertTrue(expectedResult.contains(expectedResult));
+        Assert.assertTrue(actualResult.contains(expectedResult));
 
          */
 
-        for (WebElement each : contacts) {
-            if(contactsPage.groupContact.getText().contains(each.getAttribute("option__lineone"))){
-                System.out.println("each = " + each);
-            }
-        }
 
 
 
     }
 
+    @Then("User should be able to see whole list on All contacts")
+    public void userShouldBeAbleToSeeWholeListOnAllContacts() {
+
+
+        //System.out.println("contactsPage.groupContact.getText() = " + contactsPage.groupContact.getText());
+        Assert.assertTrue(contactsPage.groupContact.isDisplayed());
+
+
+
+
+
+
+
+        //Assert.assertTrue(count >0);
+
+        // System.out.println("contactsPage.contactList.contains(\"New contact\") = " + contactsPage.contactList.contains("New contact"));
+
+        // int contacts = contactsPage.contactList.size();
+
+
+
+        //System.out.println("contacts = " + contacts);
+
+
+        //Assert.assertTrue(contacts ==1);
+
+      contactsPage.icon3Dot.click();
+      contactsPage.deleteButton.click();
+
+    }
+
+
+
+
+
+    //3 Test
     @And("User clicks on imagine icon New contact profile picture")
     public void userClicksOnImagineIconNewContactProfilePicture() {
+        contactsPage.pictureProfileButton.click();
     }
+
+
 
     @And("User clicks Choose from files option")
     public void userClicksChooseFromFilesOption() {
+        BrowserUtils.sleep(2);
+        contactsPage.chooseFromFilesButton.click();
     }
 
-    @And("User clicks {int}.jpg picture")
-    public void userClicksJpgPicture(int arg0) {
+    @And("User clicks 435.jpg picture")
+    public void userClicksJpgPicture() {
+        BrowserUtils.sleep(2);
+        contactsPage.fileNamePicture.click();
     }
 
-    @And("User clicks {int}dots button in New contact")
-    public void userClicksDotsButtonInNewContact(int arg0) {
+    @Then("User clicks choose button")
+    public void userClicksChooseButton() {
+        BrowserUtils.sleep(2);
+        contactsPage.chooseButton.click();
+
+        contactsPage.icon3Dot.click();
+        contactsPage.deleteButton.click();
+
     }
+
+
+//4
+    @And("User clicks 3dots button in New contact")
+    public void userClicksDotsButtonInNewContact() {
+        contactsPage.icon3Dot.click();
+    }
+
+
 
     @Then("User clicks Delete option")
     public void userClicksDeleteOption() {
+
+        contactsPage.deleteButton.click();
     }
+
+
+
+
+
+
+
+
 }
